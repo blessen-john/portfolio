@@ -90,7 +90,7 @@ if (motion) {
   // Intro paragraph lights up word by word as it is read.
   const text = $('.intro__text');
   text.innerHTML = text.textContent.trim().split(/\s+/).map((w) => `<span>${w}</span>`).join(' ');
-  gsap.fromTo(text.children, { opacity: 0.5 }, { // 0.5 keeps the unlit words at AA contrast
+  gsap.fromTo(text.children, { opacity: 0.58 }, { // 0.58 keeps the unlit beige words at AA contrast
     opacity: 1, stagger: 0.1, ease: 'none', scrollTrigger: { trigger: text, start: 'top 82%', end: 'bottom 55%', scrub: true } });
 
   // Rail link of the section in view takes that section's colour.
