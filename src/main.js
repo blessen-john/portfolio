@@ -13,6 +13,18 @@ const tick = () => { $('#clock').textContent = fmt.format(new Date()); };
 tick();
 setInterval(tick, motion ? 1000 : 15000);
 
+// Bright mode switch. Both copies (hero and rail) stay in step, and the choice is remembered.
+const switches = $$('.theme');
+const setTheme = (light) => {
+  if (light) root.dataset.theme = 'light'; else delete root.dataset.theme;
+  switches.forEach((b) => b.setAttribute('aria-checked', light));
+  try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) { /* storage blocked: the choice just lasts for this visit */ }
+};
+switches.forEach((b) => {
+  b.setAttribute('aria-checked', root.dataset.theme === 'light');
+  b.addEventListener('click', () => setTheme(root.dataset.theme !== 'light'));
+});
+
 // Pointer spotlight: tiles, result cards and project rows light up under the cursor.
 $$('.tools__list li, .feat, .proj').forEach((el) => {
   el.addEventListener('pointermove', (e) => {
@@ -90,7 +102,7 @@ if (motion) {
   // Intro paragraph lights up word by word as it is read.
   const text = $('.intro__text');
   text.innerHTML = text.textContent.trim().split(/\s+/).map((w) => `<span>${w}</span>`).join(' ');
-  gsap.fromTo(text.children, { opacity: root.dataset.theme === 'light' ? 0.68 : 0.58 }, { // unlit words stay at AA contrast in both palettes
+  gsap.fromTo(text.children, { opacity: 0.68 }, { // unlit words stay at AA contrast in both dark and bright mode
     opacity: 1, stagger: 0.1, ease: 'none', scrollTrigger: { trigger: text, start: 'top 82%', end: 'bottom 55%', scrub: true } });
 
   // Rail link of the section in view takes that section's colour.
