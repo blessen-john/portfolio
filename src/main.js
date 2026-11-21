@@ -78,6 +78,11 @@ if (motion) {
   gsap.fromTo(text.children, { opacity: 0.5 }, { // 0.5 keeps the unlit words at AA contrast
     opacity: 1, stagger: 0.1, ease: 'none', scrollTrigger: { trigger: text, start: 'top 82%', end: 'bottom 55%', scrub: true } });
 
+  // Rail link of the section in view takes its colour.
+  $$('.rail a').forEach((link) => {
+    ScrollTrigger.create({ trigger: link.hash, start: 'top 55%', end: 'bottom 55%', toggleClass: { targets: link, className: 'is-active' } });
+  });
+
   // Featured work: the number counts up once.
   $$('.feat').forEach((feat) => {
     const num = feat.querySelector('.count');
