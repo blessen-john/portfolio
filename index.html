@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Blessen Thomas John | Digital Marketing Manager, Dubai</title>
   <meta name="description" content="Blessen Thomas John is a Digital Marketing Manager and Adobe Experience Cloud specialist in Dubai, leading MarTech delivery across AEM, Workfront, Workfront Fusion and Marketo Engage.">
-  <meta name="theme-color" content="#0b0a09">
+  <meta name="theme-color" content="#0a0f1e">
   <link rel="canonical" href="%VITE_SITE_URL%">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Blessen Thomas John | Digital Marketing Manager, Dubai">
@@ -18,7 +18,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" as="image" type="image/webp" href="/portrait-840.webp"
     imagesrcset="/portrait-420.webp 420w, /portrait-840.webp 840w"
-    imagesizes="(min-width: 900px) 12vw, 22vw" fetchpriority="high">
+    imagesizes="(min-width: 700px) 27vw, 54vw" fetchpriority="high">
   <script>
     // Motion is opt-in: without this class the page is the static version.
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');
@@ -41,8 +41,18 @@
 <body>
   <a class="skip" href="#work">Skip to selected work</a>
 
+  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="warp-in" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.014" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="B"/>
+    </filter>
+    <filter id="warp-out" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.02" numOctaves="2" seed="21" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="0" xChannelSelector="G" yChannelSelector="R"/>
+    </filter>
+  </svg>
+
   <nav class="rail" aria-label="Sections">
-    <div class="rail__slot"></div>
     <p class="rail__name">Blessen Thomas John</p>
     <ul>
       <li><a href="#intro">Intro</a></li>
@@ -61,29 +71,28 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <span class="hero__mark" aria-hidden="true">B</span>
       <p class="clock"><span class="clock__dot" aria-hidden="true"></span>Dubai <time id="clock">00:00</time> GST</p>
     </div>
-    <div class="hero__title">
-      <h1 class="hero__name" aria-label="Blessen Thomas John">
-        <span class="line">Blessen</span><span class="line">Thomas</span> <span class="line">John</span>
-      </h1>
-      <div class="hero__slot">
+    <div class="hero__stage">
+      <div class="hero__photo">
         <div class="portrait">
           <img src="/portrait-840.webp"
             srcset="/portrait-420.webp 420w, /portrait-840.webp 840w"
-            sizes="(min-width: 900px) 12vw, 22vw"
+            sizes="(min-width: 700px) 27vw, 54vw"
             width="840" height="1050" fetchpriority="high" decoding="async"
             alt="Portrait of Blessen Thomas John, smiling, in a dark suit and navy tie">
         </div>
       </div>
+      <h1 class="hero__name" aria-label="Blessen Thomas John">
+        <span class="line">Blessen</span><span class="line">Thomas</span> <span class="line">John</span>
+      </h1>
     </div>
     <div class="hero__foot">
       <p class="hero__line">Marketing, web platforms and operations, delivered end to end.</p>
       <p class="hero__meta">Digital Marketing Manager and Adobe Experience Cloud specialist, Dubai</p>
     </div>
     <a class="hero__cue" href="#tools" aria-label="Scroll down">
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
     </a>
   </header>
 
@@ -91,13 +100,13 @@
     <section class="tools" id="tools" aria-labelledby="tools-h">
       <h2 id="tools-h" class="visually-hidden">Tools I work with</h2>
       <ul class="tools__list">
-        <li class="tool--name"><span>Adobe Experience Manager</span></li>
-        <li class="tool--name"><span>Workfront</span></li>
-        <li class="tool--name"><span>Workfront Fusion</span></li>
-        <li class="tool--name"><span>Marketo Engage</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.966 22.624l-1.69-4.281H8.122l3.892-9.144 5.662 13.425zM8.884 1.376H0v21.248zm15.116 0h-8.884L24 22.624Z"/></svg><span>Adobe Experience Manager</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.966 22.624l-1.69-4.281H8.122l3.892-9.144 5.662 13.425zM8.884 1.376H0v21.248zm15.116 0h-8.884L24 22.624Z"/></svg><span>Workfront</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.966 22.624l-1.69-4.281H8.122l3.892-9.144 5.662 13.425zM8.884 1.376H0v21.248zm15.116 0h-8.884L24 22.624Z"/></svg><span>Workfront Fusion</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.146 0v24l6.134-4.886V3.334zM13.293 18.758l-4.939 2.157V2.086l4.939 1.462zM1.721 18.205l3.78-.999V5.188l-3.762-.606z"/></svg><span>Marketo Engage</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.84 2.9982v17.9987c.0086 1.6473-1.3197 2.9897-2.967 2.9984a2.9808 2.9808 0 01-.3677-.0208c-1.528-.226-2.6477-1.5558-2.6105-3.1V3.1204c-.0369-1.5458 1.0856-2.8762 2.6157-3.1 1.6361-.1915 3.1178.9796 3.3093 2.6158.014.1201.0208.241.0202.3619zM4.1326 18.0548c-1.6417 0-2.9726 1.331-2.9726 2.9726C1.16 22.6691 2.4909 24 4.1326 24s2.9726-1.3309 2.9726-2.9726-1.331-2.9726-2.9726-2.9726zm7.8728-9.0098c-.0171 0-.0342 0-.0513.0003-1.6495.0904-2.9293 1.474-2.891 3.1256v7.9846c0 2.167.9535 3.4825 2.3505 3.763 1.6118.3266 3.1832-.7152 3.5098-2.327.04-.1974.06-.3983.0593-.5998v-8.9585c.003-1.6474-1.33-2.9852-2.9773-2.9882z"/></svg><span>Google Analytics 4</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.003 0a3 3 0 0 0-2.121 5.121l6.865 6.865-4.446 4.541 1.745 1.836a3.432 3.432 0 0 1 .7.739l.012.011-.001.002a3.432 3.432 0 0 1 .609 1.953 3.432 3.432 0 0 1-.09.78l7.75-7.647c.031-.029.067-.05.098-.08.023-.023.038-.052.06-.076a2.994 2.994 0 0 0-.06-4.166l-9-9A2.99 2.99 0 0 0 12.003 0zM8.63 2.133L.88 9.809a2.998 2.998 0 0 0 0 4.238l7.7 7.75a3.432 3.432 0 0 1-.077-.729 3.432 3.432 0 0 1 3.431-3.431 3.432 3.432 0 0 1 .826.101l-5.523-5.81 4.371-4.373-2.08-2.08c-.903-.904-1.193-2.183-.898-3.342zm3.304 16.004a2.932 2.932 0 0 0-2.931 2.931A2.932 2.932 0 0 0 11.934 24a2.932 2.932 0 0 0 2.932-2.932 2.932 2.932 0 0 0-2.932-2.931z"/></svg><span>Google Tag Manager</span></li>
-        <li class="tool--name"><span>Looker Studio</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.197 23.002c-1.016-.613-1.697-1.728-1.697-3 0-1.273.681-2.388 1.697-3h-6.909a3.034 3.034 0 0 0-.252-.011c-1.656 0-3.022 1.355-3.036 3.011v.014c0 1.645 1.354 3 3 3 .096 0 .192-.005.288-.014h6.909Zm1.803-6c1.656 0 3 1.344 3 3s-1.344 3-3 3-3-1.344-3-3 1.344-3 3-3Zm-10.803-2.004c-1.016-.613-1.697-1.728-1.697-3 0-1.273.681-2.388 1.697-3H3.288a3.034 3.034 0 0 0-.252-.011C1.38 8.987.014 10.342 0 11.998v.014c0 1.645 1.354 3 3 3 .096 0 .192-.005.288-.014h6.909Zm1.803-6c1.656 0 3 1.344 3 3s-1.344 3-3 3-3-1.344-3-3 1.344-3 3-3Zm7.197-2.004c-1.016-.613-1.697-1.728-1.697-3 0-1.273.681-2.388 1.697-3h-6.909c-.08-.006-.16-.01-.24-.01C10.39.984 9.021 2.336 9 3.994v.014c0 1.645 1.354 3 3 3 .096 0 .192-.005.288-.014h6.909Zm1.803-6c1.656 0 3 1.344 3 3s-1.344 3-3 3-3-1.344-3-3 1.344-3 3-3Z"/></svg><span>Looker Studio</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.676 10.595h2.052v5.244a5.892 5.892 0 0 1-2.052-2.088v-3.156zm18.179 10.836a.504.504 0 0 1 0 .708l-1.716 1.716a.504.504 0 0 1-.708 0l-4.248-4.248a.206.206 0 0 1-.007-.007c-.02-.02-.028-.045-.043-.066a10.736 10.736 0 0 1-6.334 2.065C4.835 21.599 0 16.764 0 10.799S4.835 0 10.8 0s10.799 4.835 10.799 10.8c0 2.369-.772 4.553-2.066 6.333.025.017.052.028.074.05l4.248 4.248zm-5.028-10.632a8.015 8.015 0 1 0-8.028 8.028h.024a8.016 8.016 0 0 0 8.004-8.028zm-4.86 4.98a6.002 6.002 0 0 0 2.04-2.184v-1.764h-2.04v3.948zm-4.5.948c.442.057.887.08 1.332.072.4.025.8.025 1.2 0V7.692H9.468v9.035z"/></svg><span>BigQuery</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.571 11.513H0a5.218 5.218 0 0 0 5.232 5.215h2.13v2.057A5.215 5.215 0 0 0 12.575 24V12.518a1.005 1.005 0 0 0-1.005-1.005zm5.723-5.756H5.736a5.215 5.215 0 0 0 5.215 5.214h2.129v2.058a5.218 5.218 0 0 0 5.215 5.214V6.758a1.001 1.001 0 0 0-1.001-1.001zM23.013 0H11.455a5.215 5.215 0 0 0 5.215 5.215h2.129v2.057A5.215 5.215 0 0 0 24 12.483V1.005A1.001 1.001 0 0 0 23.013 0Z"/></svg><span>Jira</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg><span>HubSpot</span></li>
@@ -116,182 +125,123 @@
     <section class="section" id="work" aria-labelledby="work-h">
       <h2 id="work-h">Selected work</h2>
 
-      <article class="feat">
-        <div>
+      <div class="feats">
+        <article class="feat">
           <p class="feat__num"><span class="count">92</span>%</p>
           <p class="feat__cap">faster translation turnaround</p>
-        </div>
-        <div class="feat__body">
           <h3>Global localisation and DAM</h3>
-          <p>Led global AEM localisation and DAM initiatives for a global B2B manufacturer, integrating DeepL across 12 languages. Translation turnaround went from about 6 hours to about 30 minutes, with standardised metadata, asset paths and publishing workflows.</p>
+          <p>A global B2B manufacturer publishes in 12 languages, and translation was holding every release back. I led the AEM localisation and DAM initiatives and integrated DeepL, taking turnaround from about 6 hours to about 30 minutes, with standardised metadata, asset paths and publishing workflows.</p>
           <p class="feat__tools">AEM Sites (Cloud), AEM Assets, DeepL</p>
-        </div>
-      </article>
-
-      <article class="feat">
-        <div>
+        </article>
+        <article class="feat">
           <p class="feat__num"><span class="count">30</span>%</p>
           <p class="feat__cap">less manual coordination, estimated</p>
-        </div>
-        <div class="feat__body">
-          <h3>Workfront implementation and onboarding</h3>
-          <p>Led the end-to-end implementation as project lead and platform administrator, covering requirements, workflow design, intake, routing, governance and reporting.</p>
+          <h3>Adobe Workfront implementation and onboarding</h3>
+          <p>Marketing work was being coordinated by hand. As project lead and platform administrator I ran the implementation end to end: requirements, workflow design, intake, routing, governance and reporting, then onboarded the teams.</p>
           <p class="feat__tools">Workfront</p>
-        </div>
-      </article>
-
-      <article class="feat">
-        <div>
+        </article>
+        <article class="feat">
           <p class="feat__num"><span class="count">25</span>%</p>
           <p class="feat__cap">more lead volume, estimated contribution</p>
-        </div>
-        <div class="feat__body">
-          <h3>Workfront, AEM and Marketo lead pipeline</h3>
-          <p>Built an integrated pipeline for capture, scoring, nurturing, sales handoff and engagement reporting, giving stronger lead-to-sales visibility.</p>
+          <h3>Marketing automation: Workfront, AEM and Marketo lead pipeline</h3>
+          <p>Leads needed one route from first touch to sales. I built an integrated pipeline for capture, scoring, nurturing, sales handoff and engagement reporting, which gave sales and marketing a clearer view from lead to sale.</p>
           <p class="feat__tools">Workfront, Adobe Experience Manager, Marketo Engage</p>
-        </div>
-      </article>
-
-      <article class="item">
-        <h3><span>CMS migration and custom-built CMS</span></h3>
-        <dl>
-          <div><dt>Status</dt><dd>In progress</dd></div>
-          <div><dt>What I do</dt><dd>A CMS migration and a custom-built CMS for enterprise teams, including a webshop build for their products.</dd></div>
-        </dl>
-      </article>
-
-      <article class="item">
-        <h3><span>Enterprise multi-language website</span></h3>
-        <dl>
-          <div><dt>Role</dt><dd>Website manager</dd></div>
-          <div><dt>What I did</dt><dd>Run the Adobe Experience Manager (Cloud) site of a European industrial manufacturer: editing master language versions, rolling out to regional sites and approving publication. Coordinate development with the external implementation partner through Jira, raising and scoping change requests.</dd></div>
-          <div><dt>Tools</dt><dd>Adobe Experience Manager (Cloud), Jira</dd></div>
-        </dl>
-      </article>
-
-      <article class="item">
-        <h3><span>Site architecture, redirects and technical SEO</span></h3>
-        <dl>
-          <div><dt>Role</dt><dd>Technical SEO</dd></div>
-          <div><dt>What I did</dt><dd>URL alias harmonisation and a redirect project for product and spare-parts pages in around 13 languages, across many products and industries, for the same enterprise site.</dd></div>
-        </dl>
-      </article>
-
-      <article class="item">
-        <h3><span>Product system page launch</span></h3>
-        <dl>
-          <div><dt>Role</dt><dd>Launch owner</dd></div>
-          <div><dt>What I did</dt><dd>Launched a product system page across all language versions.</dd></div>
-        </dl>
-      </article>
-
-      <article class="item">
-        <h3><span>Workfront Fusion automations</span></h3>
-        <dl>
-          <div><dt>Role</dt><dd>System administrator</dd></div>
-          <div><dt>What I did</dt><dd>Designed automations for routing, campaign workflows, request-to-task conversion and release updates, plus a rendering automation that notifies a list of recipients by email.</dd></div>
-          <div><dt>Tools</dt><dd>Workfront, Workfront Fusion</dd></div>
-        </dl>
-      </article>
-
-      <article class="item">
-        <h3><span>Reporting dashboards</span></h3>
-        <dl>
-          <div><dt>Role</dt><dd>Dashboard builder</dd></div>
-          <div><dt>What I did</dt><dd>Built media dashboards and an organic social reporting dashboard that is refreshed monthly.</dd></div>
-          <div><dt>Tools</dt><dd>Fivetran, BigQuery, Looker Studio</dd></div>
-        </dl>
-      </article>
-
-      <article class="item">
-        <h3><span>Agency website</span></h3>
-        <dl>
-          <div><dt>Role</dt><dd>Website builder</dd></div>
-          <div><dt>What I did</dt><dd>Built an agency website with Claude Code and Wix, including service pages.</dd></div>
-          <div><dt>Tools</dt><dd>Claude Code, Wix</dd></div>
-        </dl>
-      </article>
-
-      <article class="item">
-        <h3><span>AI-assisted outreach pipeline</span></h3>
-        <dl>
-          <div><dt>Role</dt><dd>Pipeline builder</dd></div>
-          <div><dt>What I did</dt><dd>Built an AI-assisted outreach pipeline with AI agents and Make.</dd></div>
-          <div><dt>Tools</dt><dd>AI agents, Make</dd></div>
-        </dl>
-      </article>
-
-      <article class="item">
-        <h3><span>Health tech app</span></h3>
-        <dl>
-          <div><dt>Role</dt><dd>Operational lead</dd></div>
-          <div><dt>What I did</dt><dd>Led operations for client onboarding and the website build.</dd></div>
-        </dl>
-      </article>
-
-      <article class="item">
-        <h3><span>Client onboarding playbook</span></h3>
-        <dl>
-          <div><dt>Role</dt><dd>Playbook author</dd></div>
-          <div><dt>What I did</dt><dd>One questionnaire and checklist covering access, material and feedback across services.</dd></div>
-        </dl>
-      </article>
-
-      <article class="item">
-        <h3><span>Hiring funnel</span></h3>
-        <dl>
-          <div><dt>Role</dt><dd>Funnel builder</dd></div>
-          <div><dt>What I did</dt><dd>Landing page with application form, paid social ads, and a 100-point applicant scoring model.</dd></div>
-        </dl>
-      </article>
-
-      <article class="item">
-        <h3><span>AI enablement</span></h3>
-        <dl>
-          <div><dt>Role</dt><dd>Onboarding lead</dd></div>
-          <div><dt>What I did</dt><dd>Onboarding colleagues to Claude for SEO, briefing and paid media work, and introducing GPT, Claude and MCP into marketing workflows.</dd></div>
-          <div><dt>Tools</dt><dd>Claude, GPT, MCP</dd></div>
-        </dl>
-      </article>
-    </section>
-
-    <section class="section" id="approach" aria-labelledby="approach-h">
-      <h2 id="approach-h">How I would approach it</h2>
-      <p class="plays__note">Three hypothetical scenarios, not client work. They show how I would plan delivery on the platforms above.</p>
-      <div class="plays">
-        <article class="play">
-          <p class="play__tag">Hypothetical scenario</p>
-          <h3>Adobe Experience Platform for a multi-language B2B manufacturer</h3>
-          <ol>
-            <li>Map the data sources (website, forms, CRM, Marketo Engage) and agree the first use cases with the business.</li>
-            <li>Design the XDM schemas and identity rules so web, lead and account data resolve to one profile.</li>
-            <li>Connect sources and web data collection, with consent and data-usage labels in place from day one.</li>
-            <li>Build audiences and activate them in Marketo Engage and paid media.</li>
-            <li>Hand over with naming standards, access roles, documentation and team onboarding.</li>
-          </ol>
         </article>
-        <article class="play">
-          <p class="play__tag">Hypothetical scenario</p>
-          <h3>Marketing automation: a lead lifecycle in Marketo Engage</h3>
-          <ol>
-            <li>Agree lifecycle stages and the definition of a sales-ready lead with sales.</li>
-            <li>Build a scoring model that combines behaviour and fit, with score decay.</li>
-            <li>Set up nurture programmes by product interest and language.</li>
-            <li>Automate the sales handoff with alerts, CRM sync and follow-up tracking.</li>
-            <li>Report the funnel in Looker Studio and review it monthly with sales and marketing.</li>
-          </ol>
-        </article>
-        <article class="play">
-          <p class="play__tag">Hypothetical scenario</p>
-          <h3>A global content supply chain on Workfront and AEM</h3>
-          <ol>
-            <li>Replace email requests with one Workfront intake form and routing rules.</li>
-            <li>Use Workfront Fusion to turn approved requests into tasks and notify the right people.</li>
-            <li>Author once in the AEM language master, translate by machine, then review locally.</li>
-            <li>Approve and roll out to live copies through a single publishing workflow.</li>
-            <li>Track turnaround and workload in dashboards, and adjust the process each quarter.</li>
-          </ol>
-        </article>
+      </div>
+
+      <div class="projs">
+        <details class="proj" name="work" open>
+          <summary><span class="proj__title">Enterprise CMS migration, custom CMS and webshop</span><span class="proj__tag">Web platform</span><span class="proj__plus" aria-hidden="true"></span></summary>
+          <div class="proj__body">
+            <p class="proj__case">Enterprise teams need to publish product content and sell online without a developer behind every change.</p>
+            <p>Delivered a CMS migration and a custom-built CMS that the client’s teams manage themselves, together with a webshop for the product range.</p>
+          </div>
+        </details>
+        <details class="proj" name="work">
+          <summary><span class="proj__title">Product and spare-parts redirect programme</span><span class="proj__tag">Technical SEO</span><span class="proj__plus" aria-hidden="true"></span></summary>
+          <div class="proj__body">
+            <p class="proj__case">When URLs change on a multi-language site, every old product and spare-parts link has to land on the right page, or rankings and customers are lost.</p>
+            <p>Planned and delivered the redirects for product and spare-parts pages in around 13 languages, across a wide range of products and industries, together with URL alias harmonisation.</p>
+            <p class="proj__tools">Adobe Experience Manager</p>
+          </div>
+        </details>
+        <details class="proj" name="work">
+          <summary><span class="proj__title">Enterprise multi-language website</span><span class="proj__tag">Web platform</span><span class="proj__plus" aria-hidden="true"></span></summary>
+          <div class="proj__body">
+            <p class="proj__case">A manufacturer’s website has to stay consistent across language masters and regional sites while many people contribute to it.</p>
+            <p>Run the Adobe Experience Manager (Cloud) site: edit the master language versions, roll out to regional sites and approve publication. Coordinate development with the external implementation partner through Jira, raising and scoping change requests.</p>
+            <p class="proj__tools">Adobe Experience Manager (Cloud), Jira</p>
+          </div>
+        </details>
+        <details class="proj" name="work">
+          <summary><span class="proj__title">Product system page launch</span><span class="proj__tag">Launch</span><span class="proj__plus" aria-hidden="true"></span></summary>
+          <div class="proj__body">
+            <p class="proj__case">A new product system needed its own page in every language version of the site.</p>
+            <p>Built and launched the product system page across all language versions.</p>
+            <p class="proj__tools">Adobe Experience Manager</p>
+          </div>
+        </details>
+        <details class="proj" name="work">
+          <summary><span class="proj__title">Workfront Fusion automations</span><span class="proj__tag">Automation</span><span class="proj__plus" aria-hidden="true"></span></summary>
+          <div class="proj__body">
+            <p class="proj__case">Routing requests, creating tasks and announcing releases by hand takes time a marketing team does not have.</p>
+            <p>Designed automations for routing, campaign workflows, request-to-task conversion and release updates, plus a rendering automation that emails a list of recipients.</p>
+            <p class="proj__tools">Workfront, Workfront Fusion</p>
+          </div>
+        </details>
+        <details class="proj" name="work">
+          <summary><span class="proj__title">Marketing reporting dashboards</span><span class="proj__tag">Analytics</span><span class="proj__plus" aria-hidden="true"></span></summary>
+          <div class="proj__body">
+            <p class="proj__case">Marketing needs one place to see how paid media and organic social are performing.</p>
+            <p>Built media dashboards on Fivetran, BigQuery and Looker Studio, and an organic social dashboard that is refreshed monthly.</p>
+            <p class="proj__tools">Fivetran, BigQuery, Looker Studio</p>
+          </div>
+        </details>
+        <details class="proj" name="work">
+          <summary><span class="proj__title">Agency website</span><span class="proj__tag">Web platform</span><span class="proj__plus" aria-hidden="true"></span></summary>
+          <div class="proj__body">
+            <p class="proj__case">An agency needed a website that explains each of its services clearly.</p>
+            <p>Built the agency website with Claude Code and Wix, including the service pages.</p>
+            <p class="proj__tools">Claude Code, Wix</p>
+          </div>
+        </details>
+        <details class="proj" name="work">
+          <summary><span class="proj__title">AI-assisted outreach pipeline</span><span class="proj__tag">AI</span><span class="proj__plus" aria-hidden="true"></span></summary>
+          <div class="proj__body">
+            <p class="proj__case">Finding and contacting the right prospects by hand does not scale.</p>
+            <p>Built an outreach pipeline that runs on AI agents and Make.</p>
+            <p class="proj__tools">AI agents, Make</p>
+          </div>
+        </details>
+        <details class="proj" name="work">
+          <summary><span class="proj__title">Health tech app</span><span class="proj__tag">Operations</span><span class="proj__plus" aria-hidden="true"></span></summary>
+          <div class="proj__body">
+            <p class="proj__case">A health tech app needed its clients onboarded and its website built.</p>
+            <p>Operational lead for client onboarding and the website build.</p>
+          </div>
+        </details>
+        <details class="proj" name="work">
+          <summary><span class="proj__title">Client onboarding playbook</span><span class="proj__tag">Operations</span><span class="proj__plus" aria-hidden="true"></span></summary>
+          <div class="proj__body">
+            <p class="proj__case">Every new client means collecting access, material and feedback before work can start.</p>
+            <p>Wrote one questionnaire and checklist that covers all three across services.</p>
+          </div>
+        </details>
+        <details class="proj" name="work">
+          <summary><span class="proj__title">Hiring funnel</span><span class="proj__tag">Recruitment</span><span class="proj__plus" aria-hidden="true"></span></summary>
+          <div class="proj__body">
+            <p class="proj__case">Hiring needed a steady flow of applicants and a consistent way to compare them.</p>
+            <p>Built a landing page with an application form, ran paid social ads and created a 100-point applicant scoring model.</p>
+          </div>
+        </details>
+        <details class="proj" name="work">
+          <summary><span class="proj__title">AI enablement</span><span class="proj__tag">AI</span><span class="proj__plus" aria-hidden="true"></span></summary>
+          <div class="proj__body">
+            <p class="proj__case">A marketing team gets more from AI when everyone knows how to use it.</p>
+            <p>Onboarded colleagues to Claude for SEO, briefing and paid media work, and introduced GPT, Claude and MCP into marketing workflows.</p>
+            <p class="proj__tools">Claude, GPT, MCP</p>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -387,7 +337,7 @@
     <section class="section contact" id="contact" aria-labelledby="contact-h">
       <h2 id="contact-h">Contact</h2>
       <a class="contact__mail" href="mailto:blessenthomasjohn@gmail.com">blessenthomasjohn@gmail.com</a>
-      <p class="lede--quiet">Based in Dubai, UAE (GST, UTC+4).</p>
+      <p class="contact__where">Based in Dubai, UAE (GST, UTC+4).</p>
       <p class="buttons">
         <a class="button button--solid" href="https://www.linkedin.com/in/blessen-thomas-john/" rel="me noopener">LinkedIn profile</a>
       </p>

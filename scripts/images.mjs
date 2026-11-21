@@ -10,12 +10,12 @@ for (const w of [420, 840]) {
 
 const face = await sharp(src).resize(400, 500, crop).toBuffer();
 const og = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
-  <rect width="1200" height="630" fill="#0b0a09"/>
-  <rect x="80" y="548" width="72" height="4" fill="#f2b33d"/>
-  <g font-family="Georgia, serif" font-size="104" fill="#efe9df">
+  <rect width="1200" height="630" fill="#0a0f1e"/>
+  <rect x="80" y="548" width="72" height="4" fill="#e8c06a"/>
+  <g font-family="Georgia, serif" font-size="104" fill="#f4efe6">
     <text x="80" y="170">Blessen</text><text x="80" y="280">Thomas</text><text x="80" y="390">John</text>
   </g>
-  <text x="80" y="470" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#a8a196">Digital Marketing Manager, Dubai</text>
+  <text x="80" y="470" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#9ca8c2">Digital Marketing Manager, Dubai</text>
 </svg>`;
 await sharp(Buffer.from(og)).composite([{ input: face, left: 720, top: 65 }]).png().toFile('public/og.png');
 console.log('images written to public/');
