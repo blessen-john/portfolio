@@ -26,39 +26,56 @@ switches.forEach((b) => {
   b.addEventListener('click', () => setTheme(root.dataset.theme !== 'light'));
 });
 
+// Project room: theme tiles on the page, a full-screen dialog behind them. Tiles and the theme
+// switcher are built from the headings in the markup, so without scripts the projects just sit in the page.
+root.classList.add('js');
+const room = $('.room');
+const groups = $$('.projs__group');
+const tiles = document.createElement('div');
+tiles.className = 'tiles';
+const switcher = document.createElement('div');
+switcher.className = 'filter';
+switcher.setAttribute('role', 'group');
+switcher.setAttribute('aria-label', 'Themes');
+const show = (group) => {
+  groups.forEach((g, i) => { g.hidden = g !== group; switcher.children[i].setAttribute('aria-pressed', g === group); });
+  const art = room.querySelector('.room__art'); // a fresh node, so the motif draws itself again
+  art.replaceWith(Object.assign(art.cloneNode(true), { innerHTML: `<use href="#m-${group.dataset.motif}"/>` }));
+  room.scrollTop = 0;
+};
+groups.forEach((group) => {
+  const name = group.querySelector('.projs__theme').textContent;
+  const cards = group.querySelectorAll('.proj');
+  cards.forEach((card, i) => card.style.setProperty('--i', i));
+  const tile = document.createElement('button');
+  tile.type = 'button';
+  tile.className = 'tile';
+  tile.innerHTML = `<svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-${group.dataset.motif}"/></svg><span class="tile__name">${name}</span><span class="tile__n">${cards.length} projects</span>`;
+  tile.addEventListener('click', () => {
+    const r = tile.getBoundingClientRect();
+    room.style.setProperty('--x', `${r.left + r.width / 2}px`);
+    room.style.setProperty('--y', `${r.top + r.height / 2}px`);
+    show(group);
+    room.showModal();
+  });
+  tiles.append(tile);
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.textContent = name;
+  btn.addEventListener('click', () => show(group));
+  switcher.append(btn);
+});
+room.before(tiles);
+$('.room__side').prepend(switcher);
+
 // Pointer spotlight: tiles, result cards and project rows light up under the cursor.
-$$('.tools__list li, .feat, .proj').forEach((el) => {
+$$('.tools__list li, .feat, .proj, .tile').forEach((el) => {
   el.addEventListener('pointermove', (e) => {
     const r = el.getBoundingClientRect();
     el.style.setProperty('--mx', `${e.clientX - r.left}px`);
     el.style.setProperty('--my', `${e.clientY - r.top}px`);
   }, { passive: true });
 });
-
-// Theme filter for the project list, built from the group headings so the page reads the same without scripts.
-const groups = $$('.projs__group');
-const filter = document.createElement('div');
-filter.className = 'filter';
-filter.setAttribute('role', 'group');
-filter.setAttribute('aria-label', 'Show work by theme');
-const pick = (btn, group) => {
-  groups.forEach((g) => { g.hidden = !!group && g !== group; });
-  [...filter.children].forEach((b) => b.setAttribute('aria-pressed', b === btn));
-  if (group) group.querySelector('.proj').open = true;
-  if (motion) ScrollTrigger.refresh(); // the list changed height, so the pinned timeline below moves
-};
-[null, ...groups].forEach((group) => {
-  const btn = document.createElement('button');
-  btn.type = 'button';
-  btn.setAttribute('aria-pressed', !group);
-  btn.append(group ? group.querySelector('.projs__theme').textContent : 'All', ' ');
-  const n = document.createElement('span');
-  n.textContent = (group || document).querySelectorAll('.proj').length;
-  btn.append(n);
-  btn.addEventListener('click', () => pick(btn, group));
-  filter.append(btn);
-});
-$('.projs').before(filter);
 
 // No 'motion' class (reduced motion) = static page, nothing below runs.
 if (motion) {
@@ -145,8 +162,8 @@ if (motion) {
       .to(n, { v: +num.textContent, duration: 1.5, ease: 'power2.out', onUpdate: () => { num.textContent = Math.round(n.v); } }, 0);
   });
 
-  // Project rows follow each other in.
-  ScrollTrigger.batch('.proj', { start: 'top 90%', once: true, onEnter: (rows) => gsap.from(rows, { autoAlpha: 0, y: 24, duration: 0.6, ease: 'power3.out', stagger: 0.07, clearProps: 'transform' }) });
+  // Theme tiles follow each other in.
+  ScrollTrigger.batch('.tile', { start: 'top 90%', once: true, onEnter: (rows) => gsap.from(rows, { autoAlpha: 0, y: 24, duration: 0.6, ease: 'power3.out', stagger: 0.07, clearProps: 'transform' }) });
 
   // Experience: vertical scroll drives a pinned horizontal timeline on wide screens.
   gsap.matchMedia().add('(min-width: 900px)', () => {
