@@ -90,7 +90,7 @@ if (motion) {
   // Intro paragraph lights up word by word as it is read.
   const text = $('.intro__text');
   text.innerHTML = text.textContent.trim().split(/\s+/).map((w) => `<span>${w}</span>`).join(' ');
-  gsap.fromTo(text.children, { opacity: 0.58 }, { // 0.58 keeps the unlit beige words at AA contrast
+  gsap.fromTo(text.children, { opacity: root.dataset.theme === 'light' ? 0.68 : 0.58 }, { // unlit words stay at AA contrast in both palettes
     opacity: 1, stagger: 0.1, ease: 'none', scrollTrigger: { trigger: text, start: 'top 82%', end: 'bottom 55%', scrub: true } });
 
   // Rail link of the section in view takes that section's colour.
@@ -115,7 +115,7 @@ if (motion) {
     const xp = $('.xp');
     const row = $('.xp__track');
     const travel = () => Math.max(0, row.scrollWidth - xp.clientWidth);
-    gsap.to(row, { x: () => -travel(), ease: 'none', scrollTrigger: { trigger: xp, start: 'top top', end: () => `+=${travel()}`, pin: true, scrub: true, invalidateOnRefresh: true } });
+    gsap.to(row, { x: () => -travel(), ease: 'none', scrollTrigger: { trigger: xp, start: 'center center', end: () => `+=${travel()}`, pin: true, scrub: true, invalidateOnRefresh: true } }); // pinned at its own height, so Skills follows straight after
   });
 
   // Web fonts change heights, so measure again once they are in.

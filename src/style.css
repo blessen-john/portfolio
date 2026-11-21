@@ -1,7 +1,7 @@
 @import '@fontsource-variable/bodoni-moda/opsz.css';
 @import '@fontsource-variable/hanken-grotesk/wght.css';
 
-/* Black and beige. Burnt orange leads, yellow is the second voice; nothing else. */
+/* Black and beige with one accent, burnt orange. Yellow only appears inside the sun behind the portrait. */
 :root {
   --bg: #0b0a08;
   --panel: #151310;
@@ -9,7 +9,8 @@
   --ink: #ece2cf;
   --mute: #a69d8b;
   --orange: #dc682c;
-  --yellow: #f0b63a;
+  --sun: #f0b63a;
+  --plate: #ece2cf;
   --pad: clamp(1.25rem, 5vw, 4.5rem);
   --rail: 13rem;
   --display: 'Bodoni Moda Variable', 'Bodoni MT', Didot, Georgia, serif;
@@ -24,19 +25,17 @@ h1, h2, h3, p, ul, ol { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
 img { display: block; max-width: 100%; }
 a { color: inherit; }
-:focus-visible { outline: 2px solid var(--yellow); outline-offset: 4px; border-radius: 2px; }
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; border-radius: 2px; }
 ::selection { background: var(--orange); color: var(--bg); }
 .visually-hidden, .defs { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.skip { position: absolute; left: 1rem; top: -4rem; z-index: 30; padding: .6rem 1rem; background: var(--yellow); color: var(--bg); font-weight: 600; }
+.skip { position: absolute; left: 1rem; top: -4rem; z-index: 30; padding: .6rem 1rem; background: var(--orange); color: var(--bg); font-weight: 600; }
 .skip:focus { top: 1rem; }
 
-/* Sections alternate the two accents; each nav link wears its section's one. */
-#work, [href='#work'], #skills, [href='#skills'] { --sec: var(--orange); }
-#experience, [href='#experience'], #contact, [href='#contact'] { --sec: var(--yellow); }
-[href='#intro'] { --sec: var(--ink); }
-/* Repeated blocks alternate too; --c is what each lights up with. */
-:is(.feat, .proj, .xp__item, .skills > div, .tools__list li) { --c: var(--orange); }
-:is(.feat, .proj, .xp__item, .skills > div, .tools__list li):nth-child(even) { --c: var(--yellow); }
+/* Beige, white and black version, shown with ?theme=light in the address. */
+[data-theme='light'] { --bg: #efe6d6; --panel: #fffdf8; --rule: #d6cbb6; --ink: #15130f; --mute: #5e574b; --orange: #a5420f; --plate: #f3ecdf; color-scheme: light; }
+
+/* --sec and --c are what links and blocks light up with: the one accent. */
+:root { --sec: var(--orange); --c: var(--orange); }
 
 /* ---------- Rail: plain top nav by default; fixed once motion is on ---------- */
 .rail { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem var(--pad); }
@@ -60,7 +59,9 @@ a { color: inherit; }
 .hero__photo { width: min(54vw, 30svh); }
 /* Cut-out portrait in front of a low sun; both fade out where the name crosses. */
 .portrait { position: relative; aspect-ratio: 841 / 1084; -webkit-mask-image: linear-gradient(#000 55%, transparent 96%); mask-image: linear-gradient(#000 55%, transparent 96%); }
-.portrait__sun { position: absolute; top: 7%; left: 4%; width: 92%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 50% 18%, var(--yellow), var(--orange) 58%); }
+/* On the light palette the dark suit would sit under black type, so the photo lets go earlier. */
+[data-theme='light'] .portrait { -webkit-mask-image: linear-gradient(#000 40%, transparent 74%); mask-image: linear-gradient(#000 40%, transparent 74%); }
+.portrait__sun { position: absolute; top: 7%; left: 4%; width: 92%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 50% 18%, var(--sun), #dc682c 58%); }
 .portrait img { position: relative; width: 100%; height: 100%; object-fit: cover; }
 .hero__name { position: relative; margin-top: -.95em; font: 600 1em/.9 var(--display); letter-spacing: -.01em; text-transform: uppercase; white-space: nowrap; }
 .hero__name .line { display: block; }
@@ -82,10 +83,11 @@ a { color: inherit; }
 /* ---------- Tool banner: logos drop in once and stay ---------- */
 .tools { padding: clamp(1.5rem, 4vw, 2.5rem) var(--pad); border-block: 1px solid var(--rule); scroll-margin-top: 4rem; }
 .tools__list { display: grid; grid-template-columns: repeat(auto-fit, minmax(6.25rem, 1fr)); gap: .75rem; }
-.tools__list li { display: grid; align-content: center; justify-items: center; gap: .65rem; min-height: 6.5rem; padding: .9rem .6rem; border: 1px solid var(--rule); border-radius: .9rem; background: var(--panel); text-align: center; font-size: .82rem; line-height: 1.3; color: var(--mute); transition: color .2s, border-color .2s, translate .2s; }
-.tools__list svg { width: 1.9rem; height: 1.9rem; fill: var(--ink); transition: fill .2s; }
+.tools__list li { display: grid; align-content: center; justify-items: center; gap: .65rem; min-height: 7rem; padding: .9rem .6rem; border: 1px solid var(--rule); border-radius: .9rem; background: var(--panel); text-align: center; font-size: .82rem; line-height: 1.3; color: var(--mute); transition: color .2s, border-color .2s, translate .2s; }
+/* Logos keep their brand colour, on a light plate so dark marks stay readable. */
+.tool__logo { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: .7rem; background: var(--plate); }
+.tools__list svg { width: 1.7rem; height: 1.7rem; fill: var(--brand); }
 .tools__list li:hover { color: var(--ink); border-color: var(--c); translate: 0 -4px; }
-.tools__list li:hover svg { fill: var(--c); }
 
 /* ---------- Sections ---------- */
 .section { padding: clamp(4rem, 10vw, 7.5rem) var(--pad) 0; scroll-margin-top: 4rem; }
@@ -186,7 +188,7 @@ main h2::before { content: ''; display: block; width: 3rem; height: 3px; margin-
   .motion .rail ul { flex-direction: column; gap: .1rem; }
   .motion main, .motion .footer { margin-left: var(--rail); }
 
-  .motion .xp { height: 100svh; padding-top: 0; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+  .motion .xp { overflow: hidden; padding-bottom: 1rem; }
   .motion .xp__track { display: flex; gap: clamp(3rem, 6vw, 6rem); width: max-content; padding-right: 12vw; }
   .motion .xp__item { flex: none; width: min(36rem, 58vw); }
 }
