@@ -118,14 +118,19 @@ main h2::before { content: ''; display: block; width: 3rem; height: 3px; margin-
 .feat__tools { margin-top: 1rem; color: var(--c); font-size: .88rem; }
 
 /* Projects: one open at a time, each a use case and what was delivered */
-.projs { margin-top: clamp(2rem, 4vw, 3rem); border-top: 1px solid var(--rule); }
-.proj { border-bottom: 1px solid var(--rule); }
-.proj summary { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 1rem; padding: 1.2rem .75rem; cursor: pointer; list-style: none; }
+.projs { margin-top: clamp(2rem, 4vw, 3rem); border-bottom: 1px solid var(--rule); }
+.projs__group { border-top: 1px solid var(--rule); }
+.projs__theme { padding: 1.4rem .75rem .3rem; font: 600 1.05rem/1.4 var(--sans); color: var(--c); }
+.proj + .proj { border-top: 1px solid var(--rule); }
+@media (min-width: 900px) {
+  .projs__group { display: grid; grid-template-columns: 15rem 1fr; gap: 2rem; }
+  .projs__theme { position: sticky; top: 4.5rem; align-self: start; padding: 1.35rem 0 1.35rem .75rem; }
+}
+.proj summary { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1rem; padding: 1.2rem .75rem; cursor: pointer; list-style: none; }
 .proj summary::-webkit-details-marker { display: none; }
 .proj__title { font: 500 clamp(1.2rem, 2vw, 1.55rem)/1.2 var(--display); transition: color .25s, translate .25s; }
 .proj:hover .proj__title, .proj[open] .proj__title { color: var(--c); }
 .proj:hover .proj__title { translate: .4rem 0; }
-.proj__tag { padding: .15rem .7rem; border: 1px solid var(--rule); border-radius: 999px; color: var(--mute); font-size: .82rem; white-space: nowrap; }
 .proj__plus { position: relative; width: 1rem; height: 1rem; color: var(--c); }
 .proj__plus::before, .proj__plus::after { content: ''; position: absolute; inset: 50% 0 auto 0; height: 1.5px; background: currentColor; transition: rotate .3s; }
 .proj__plus::after { rotate: 90deg; }
@@ -173,10 +178,6 @@ main h2::before { content: ''; display: block; width: 3rem; height: 3px; margin-
 
 .footer { margin-top: clamp(5rem, 12vw, 9rem); padding: 1.5rem var(--pad) 2rem; border-top: 1px solid var(--rule); color: var(--mute); font-size: .9rem; }
 
-@media (max-width: 599px) {
-  .proj summary { grid-template-columns: 1fr auto; }
-  .proj__tag { display: none; }
-}
 
 /* 320px phones: the fixed bar has to fit four links and the switch. */
 @media (max-width: 359px) {
@@ -201,7 +202,8 @@ main h2::before { content: ''; display: block; width: 3rem; height: 3px; margin-
   .hero { padding-top: 1.75rem; padding-bottom: 1.5rem; }
   .hero__tools { flex: none; margin-left: auto; }
   .motion .hero__nav { display: flex; }
-  .tools__list { grid-template-columns: repeat(8, 1fr); }
+  .tools__list { display: flex; flex-wrap: wrap; justify-content: center; } /* 17 tiles: rows of 9 and 8, centred */
+  .tools__list li { flex: 0 0 calc((100% - 6rem) / 9); }
   .xp__track { grid-template-columns: 1fr 1fr; column-gap: 3rem; }
   .creds { grid-template-columns: 1fr 1fr; }
   .rail__name { display: block; }
