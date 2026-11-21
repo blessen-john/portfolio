@@ -178,6 +178,14 @@ main h2::before { content: ''; display: block; width: 3rem; height: 3px; margin-
   .proj__tag { display: none; }
 }
 
+/* 320px phones: the fixed bar has to fit four links and the switch. */
+@media (max-width: 359px) {
+  .rail { gap: .5rem; }
+  .rail ul { gap: .55rem; }
+  .rail a { font-size: .8rem; }
+  .rail .theme { width: 3rem; height: 1.7rem; }
+}
+
 @media (min-width: 700px) {
   .hero__stage { font-size: min(11.2vw, 15.5svh, 10.5rem); }
   .hero__photo { width: min(31vw, 42svh); }
