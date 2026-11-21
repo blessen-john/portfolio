@@ -35,6 +35,31 @@ $$('.tools__list li, .feat, .proj').forEach((el) => {
   }, { passive: true });
 });
 
+// Theme filter for the project list, built from the group headings so the page reads the same without scripts.
+const groups = $$('.projs__group');
+const filter = document.createElement('div');
+filter.className = 'filter';
+filter.setAttribute('role', 'group');
+filter.setAttribute('aria-label', 'Show work by theme');
+const pick = (btn, group) => {
+  groups.forEach((g) => { g.hidden = !!group && g !== group; });
+  [...filter.children].forEach((b) => b.setAttribute('aria-pressed', b === btn));
+  if (group) group.querySelector('.proj').open = true;
+  if (motion) ScrollTrigger.refresh(); // the list changed height, so the pinned timeline below moves
+};
+[null, ...groups].forEach((group) => {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.setAttribute('aria-pressed', !group);
+  btn.append(group ? group.querySelector('.projs__theme').textContent : 'All', ' ');
+  const n = document.createElement('span');
+  n.textContent = (group || document).querySelectorAll('.proj').length;
+  btn.append(n);
+  btn.addEventListener('click', () => pick(btn, group));
+  filter.append(btn);
+});
+$('.projs').before(filter);
+
 // No 'motion' class (reduced motion) = static page, nothing below runs.
 if (motion) {
   gsap.registerPlugin(ScrollTrigger);
