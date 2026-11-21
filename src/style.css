@@ -1,17 +1,15 @@
 @import '@fontsource-variable/bodoni-moda/opsz.css';
 @import '@fontsource-variable/hanken-grotesk/wght.css';
 
-/* Midnight and brass: the navy comes from the portrait, brass leads, three more colours answer interaction. */
+/* Black and beige. Burnt orange leads, yellow is the second voice; nothing else. */
 :root {
-  --bg: #0a0f1e;
-  --panel: #111830;
-  --rule: #26304d;
-  --ink: #f4efe6;
-  --mute: #9ca8c2;
-  --brass: #e8c06a;
-  --ice: #8fc2ff;
-  --coral: #ff9a7b;
-  --mint: #84e0c0;
+  --bg: #0b0a08;
+  --panel: #151310;
+  --rule: #2e2a23;
+  --ink: #ece2cf;
+  --mute: #a69d8b;
+  --orange: #dc682c;
+  --yellow: #f0b63a;
   --pad: clamp(1.25rem, 5vw, 4.5rem);
   --rail: 13rem;
   --display: 'Bodoni Moda Variable', 'Bodoni MT', Didot, Georgia, serif;
@@ -26,23 +24,19 @@ h1, h2, h3, p, ul, ol { margin: 0; }
 ul, ol { padding: 0; list-style: none; }
 img { display: block; max-width: 100%; }
 a { color: inherit; }
-:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; border-radius: 2px; }
-::selection { background: var(--brass); color: var(--bg); }
+:focus-visible { outline: 2px solid var(--yellow); outline-offset: 4px; border-radius: 2px; }
+::selection { background: var(--orange); color: var(--bg); }
 .visually-hidden, .defs { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.skip { position: absolute; left: 1rem; top: -4rem; z-index: 30; padding: .6rem 1rem; background: var(--brass); color: var(--bg); font-weight: 600; }
+.skip { position: absolute; left: 1rem; top: -4rem; z-index: 30; padding: .6rem 1rem; background: var(--yellow); color: var(--bg); font-weight: 600; }
 .skip:focus { top: 1rem; }
 
-/* Each section owns a colour; its nav link wears the same one. */
-#work, [href='#work'] { --sec: var(--brass); }
-#experience, [href='#experience'] { --sec: var(--ice); }
-#skills, [href='#skills'] { --sec: var(--mint); }
-#contact, [href='#contact'] { --sec: var(--coral); }
+/* Sections alternate the two accents; each nav link wears its section's one. */
+#work, [href='#work'], #skills, [href='#skills'] { --sec: var(--orange); }
+#experience, [href='#experience'], #contact, [href='#contact'] { --sec: var(--yellow); }
 [href='#intro'] { --sec: var(--ink); }
-/* Repeated blocks cycle through the four; --c is what each lights up with. */
-:is(.feat, .proj, .xp__item, .skills > div, .tools__list li) { --c: var(--brass); }
-:is(.feat, .proj, .xp__item, .skills > div, .tools__list li):nth-child(4n + 2) { --c: var(--ice); }
-:is(.feat, .proj, .xp__item, .skills > div, .tools__list li):nth-child(4n + 3) { --c: var(--coral); }
-:is(.feat, .proj, .xp__item, .skills > div, .tools__list li):nth-child(4n) { --c: var(--mint); }
+/* Repeated blocks alternate too; --c is what each lights up with. */
+:is(.feat, .proj, .xp__item, .skills > div, .tools__list li) { --c: var(--orange); }
+:is(.feat, .proj, .xp__item, .skills > div, .tools__list li):nth-child(even) { --c: var(--yellow); }
 
 /* ---------- Rail: plain top nav by default; fixed once motion is on ---------- */
 .rail { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem var(--pad); }
@@ -57,26 +51,24 @@ a { color: inherit; }
 .hero__top { width: 100%; display: flex; align-items: center; justify-content: flex-end; gap: 1rem; color: var(--mute); font-size: .95rem; }
 .hero__nav { display: none; }
 .clock { display: inline-flex; align-items: center; gap: .5rem; font-variant-numeric: tabular-nums; }
-.clock__dot { width: .5rem; height: .5rem; border-radius: 50%; background: var(--mint); }
+.clock__dot { width: .5rem; height: .5rem; border-radius: 50%; background: var(--orange); }
 .motion .clock__dot { animation: pulse 2s ease-in-out infinite; }
 @keyframes pulse { 50% { opacity: .25; } }
 
 /* Phones stack the name in three lines; from 700px "Thomas John" shares a line. */
 .hero__stage { align-self: center; display: grid; justify-items: center; font-size: clamp(3rem, 18.5vw, 7rem); }
 .hero__photo { width: min(54vw, 30svh); }
-.portrait { position: relative; aspect-ratio: 4 / 5; overflow: hidden; -webkit-mask-image: linear-gradient(#000 52%, transparent 97%); mask-image: linear-gradient(#000 52%, transparent 97%); }
-.portrait img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.08); transition: filter .6s; }
-/* Navy wash ties the photo to the palette; the pointer brings the true colours back. */
-.portrait::after { content: ''; position: absolute; inset: 0; background: #2a4390; mix-blend-mode: color; opacity: .42; transition: opacity .6s; }
-.hero__stage:hover .portrait img { filter: none; }
-.hero__stage:hover .portrait::after { opacity: 0; }
+/* Cut-out portrait in front of a low sun; both fade out where the name crosses. */
+.portrait { position: relative; aspect-ratio: 841 / 1084; -webkit-mask-image: linear-gradient(#000 55%, transparent 96%); mask-image: linear-gradient(#000 55%, transparent 96%); }
+.portrait__sun { position: absolute; top: 7%; left: 4%; width: 92%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 50% 18%, var(--yellow), var(--orange) 58%); }
+.portrait img { position: relative; width: 100%; height: 100%; object-fit: cover; }
 .hero__name { position: relative; margin-top: -.95em; font: 600 1em/.9 var(--display); letter-spacing: -.01em; text-transform: uppercase; white-space: nowrap; }
 .hero__name .line { display: block; }
 .hero__name .ch { display: inline-block; }
 .hero__line { font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.35; max-width: 32ch; margin-inline: auto; text-wrap: balance; }
 .hero__meta { margin-top: .5rem; color: var(--mute); font-size: .95rem; }
 .hero__cue { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; color: var(--mute); transition: color .2s; }
-.hero__cue:hover { color: var(--brass); }
+.hero__cue:hover { color: var(--orange); }
 .motion .hero__cue svg { animation: nudge 1.8s ease-in-out infinite; }
 @keyframes nudge { 50% { transform: translateY(5px); } }
 /* Hidden until main.js takes over, so nothing flashes before the intro. */
@@ -159,7 +151,7 @@ main h2::before { content: ''; display: block; width: 3rem; height: 3px; margin-
 .contact__where { margin-top: 1.25rem; color: var(--mute); }
 .buttons { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
 .button { display: inline-flex; align-items: center; min-height: 3.25rem; padding: 0 1.6rem; border: 1px solid var(--ink); text-decoration: none; font-weight: 600; transition: background-color .2s, color .2s, border-color .2s; }
-.button--solid { background: var(--brass); border-color: var(--brass); color: var(--bg); }
+.button--solid { background: var(--orange); border-color: var(--orange); color: var(--bg); }
 .button--solid:hover { background: var(--ink); border-color: var(--ink); }
 
 .footer { margin-top: clamp(5rem, 12vw, 9rem); padding: 1.5rem var(--pad) 2rem; border-top: 1px solid var(--rule); color: var(--mute); font-size: .9rem; }
@@ -185,7 +177,7 @@ main h2::before { content: ''; display: block; width: 3rem; height: 3px; margin-
   .hero__top { justify-content: space-between; }
   .motion .hero__nav { display: flex; }
   .clock { margin-left: auto; }
-  .tools__list { grid-template-columns: repeat(7, 1fr); }
+  .tools__list { grid-template-columns: repeat(8, 1fr); }
   .xp__track { grid-template-columns: 1fr 1fr; column-gap: 3rem; }
   .creds { grid-template-columns: 1fr 1fr; }
   .rail__name { display: block; }
