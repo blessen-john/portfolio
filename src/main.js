@@ -17,11 +17,12 @@ setInterval(tick, motion ? 1000 : 15000);
 const switches = $$('.theme');
 const setTheme = (light) => {
   if (light) root.dataset.theme = 'light'; else delete root.dataset.theme;
-  switches.forEach((b) => b.setAttribute('aria-checked', light));
+  switches.forEach((b) => { b.setAttribute('aria-checked', light); b.title = `Switch to ${light ? 'dark' : 'bright'} mode`; });
   try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) { /* storage blocked: the choice just lasts for this visit */ }
 };
 switches.forEach((b) => {
   b.setAttribute('aria-checked', root.dataset.theme === 'light');
+  if (root.dataset.theme === 'light') b.title = 'Switch to dark mode';
   b.addEventListener('click', () => setTheme(root.dataset.theme !== 'light'));
 });
 
