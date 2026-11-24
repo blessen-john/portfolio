@@ -242,8 +242,8 @@ html:not(.js) :is(.room__bar, .room__side, .tiles__hint) { display: none; }
   .hero { padding-top: 1.75rem; padding-bottom: 1.5rem; }
   .hero__tools { flex: none; margin-left: auto; }
   .motion .hero__nav { display: flex; }
-  .tools__list { display: flex; flex-wrap: wrap; justify-content: center; } /* 17 tiles: rows of 9 and 8, centred */
-  .tools__list li { flex: 0 0 calc((100% - 6rem) / 9); }
+  .tools__list { display: flex; flex-wrap: wrap; justify-content: center; } /* 22 tiles: rows of 8, 8 and 6, centred */
+  .tools__list li { flex: 0 0 calc((100% - 5.25rem) / 8); }
   .xp__track { grid-template-columns: 1fr 1fr; column-gap: 3rem; }
   .creds { grid-template-columns: 1fr 1fr; }
   .rail__name { display: block; }
